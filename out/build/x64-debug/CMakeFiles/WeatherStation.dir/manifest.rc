@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "E:/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/out/build/x64-debug/CMakeFiles/WeatherStation.dir/embed.manifest"
