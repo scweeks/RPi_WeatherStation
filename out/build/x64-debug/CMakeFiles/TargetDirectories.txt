@@ -1,3 +1,0 @@
-E:/DevRepos/SWENG452w/WeatherStation/WeatherStation/out/build/x64-debug/CMakeFiles/WeatherStation.dir
-E:/DevRepos/SWENG452w/WeatherStation/WeatherStation/out/build/x64-debug/CMakeFiles/edit_cache.dir
-E:/DevRepos/SWENG452w/WeatherStation/WeatherStation/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
