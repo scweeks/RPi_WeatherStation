@@ -12,7 +12,7 @@ endif()
 project ("WeatherStation")
 
 # Add source to this project's executable.
-add_executable (WeatherStation "WeatherStation.cpp" "WeatherStation.h" "Interfaces/SensorIF.h" "Interfaces/SensorDataIF.h" "Interfaces/ConnectionIF.h" "Concrete/Sensors/WindSensor.h" "Concrete/SensorData/WindData.h" "Concrete/SensorData/TempData.h" "Abstract/SensorDataAC.h")
+add_executable (WeatherStation "WeatherStation.cpp" "WeatherStation.h" "Interfaces/SensorIF.h" "Interfaces/SensorDataIF.h" "Interfaces/ConnectionIF.h" "Concrete/Sensors/WindSensor.h" "Concrete/SensorData/WindData.h" "Concrete/SensorData/TempData.h" "Abstract/SensorDataAC.h" "Managers/SensorManager.h" "Concrete/WeatherData.h" "Managers/ConnectionServer.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET WeatherStation PROPERTY CXX_STANDARD 20)

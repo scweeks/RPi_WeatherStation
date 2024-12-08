@@ -7,9 +7,8 @@ using namespace std;
 
 class WindData : public SensorDataAC {
 public:
-    // 
-    string GetData() const override { return this->GetData(); }
-    bool SetData(const string& data) override { return this->SetData(data); }
+    string GetData() const override { return SensorDataAC::GetData(); }
+    bool SetData(const string& data) override { return SensorDataAC::SetData(data); }
 };
 
 #endif // WINDDATA_H

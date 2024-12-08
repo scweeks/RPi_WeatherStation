@@ -1,5 +1,5 @@
-#ifndef SensorDataAC_H
-#define SensorDataAC_H
+#ifndef SENSORDATAAC_H
+#define SENSORDATAAC_H
 
 #include <string>
 #include "../Interfaces/SensorDataIF.h"
@@ -11,13 +11,12 @@ private:
     string data;
 protected:
     // Protected getter and setter for data
-    bool SetData(const string& data) override { this->data = data; return true; }
-    string GetData() const override { return this->data; }
+    bool SetData(const string& data) { this->data = data; return true; }
+    string GetData() const { return this->data; }
 public:
     virtual string GetData() const = 0;
     virtual bool SetData(const string& data) = 0;
-    virtual ~SensorDataIF() = default;
+    virtual ~SensorDataAC() = default;
 };
 
-
-#endif // SensorDataAC_H
+#endif // SENSORDATAAC_H
