@@ -5,49 +5,72 @@
 #include <string>
 #include "../Interfaces/SensorIF.h"
 #include "../Interfaces/ConnectionIF.h"
+#include "../Interfaces/SensorDataIF.h"
 
 using namespace std;
 
 class SensorAC : public SensorIF {
 private:
-    shared_ptr<SensorDataIF> data;
-    shared_ptr<ConnectionIF> connection;
-    string sensorType;
+    shared_ptr<SensorDataIF> Data;
+    shared_ptr<ConnectionIF> Connection;
+    string SensorType;
+    string SensorName;
 
 protected:
-    // Protected getter and setter for data
-    void setData(shared_ptr<SensorDataIF> newData) {
-        data = newData;
+    // Protected setter for Data
+    bool setData(std::shared_ptr<SensorDataIF> newData) {
+        //Data = newData;
+        if (Data = newData)
+            return true;
+        return false;
+    }
+    // Protected getter for Data
+    std::shared_ptr<SensorDataIF> getData() const {
+        return Data;
     }
 
-    shared_ptr<SensorDataIF> getData() const {
-        return data;
+    // Protected setter for Connection
+    bool setConnection(std::shared_ptr<ConnectionIF> newConnection) {
+        if (Connection = newConnection)
+            return true;
+        return false;
+    }
+    // Protected getter for Connection
+    std::shared_ptr<ConnectionIF> getConnection() const {
+        return Connection;
     }
 
-    // Protected getter and setter for connection
-    void setConnection(shared_ptr<ConnectionIF> newConnection) {
-        connection = newConnection;
+    // Protected setter for SensorType
+    bool setSensorType(const std::string& newSensorType) {
+        SensorType = newSensorType;
+        return true;
+    }
+    // Protected getter for SensorType
+    std::string getSensorType() const {
+        return SensorType;
     }
 
-    shared_ptr<ConnectionIF> getConnection() const {
-        return connection;
+    // Protected setter for SensorName
+    bool setSensorName(const std::string& newSensorName) {
+        string originalSensorName = SensorName;
+        SensorName = newSensorName;
+        if (SensorName == originalSensorName)
+			return false;
+        return true;
     }
-
-    // Protected getter and setter for sensorType
-    void setSensorType(const string& newSensorType) {
-        sensorType = newSensorType;
-    }
-
-    string getSensorType() const {
-        return sensorType;
+    // Protected getter for SensorName
+    std::string getSensorName() const {
+        return SensorName;
     }
 
 public:
-    virtual shared_ptr<SensorDataIF> GetData() const = 0;
+    SensorAC(std::shared_ptr<SensorDataIF> data, std::shared_ptr<ConnectionIF> connection)
+        : Data(data), Connection(connection) {}
+    virtual string GetSensorData() const = 0;
+    virtual string GetSensorName() const = 0;
     virtual string GetSensorType() const = 0;
-    virtual bool OpenConnection(const std::string& address) = 0;
-    virtual bool WriteSensorData(const std::string& data) = 0;
-    virtual bool CloseConnection() = 0;
+    virtual bool SetSensorName(const std::string& SensorName) = 0;
+    virtual bool UpdateConnection(const std::string& address, int port) = 0;
     virtual ~SensorAC() = default;
 };
 

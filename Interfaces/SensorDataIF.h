@@ -8,7 +8,7 @@ using namespace std;
 class SensorDataIF {
 public:
     virtual std::string GetData() const = 0;
-    virtual bool SetData(const std::string& data) = 0;
+    virtual bool SetData(const std::string& Data) = 0;
     virtual ~SensorDataIF() = default;
 };
 

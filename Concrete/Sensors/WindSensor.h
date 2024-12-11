@@ -25,17 +25,17 @@ public:
     }
 
     bool OpenConnection(const std::string& address) override {
-        // Implementation for opening connection
+        // Implementation for opening Connection
         return true;
     }
 
-    bool WriteSensorData(const std::string& data) override {
-        // Implementation for writing sensor data
+    bool WriteSensorData(const std::string& Data) override {
+        // Implementation for writing sensor Data
         return true;
     }
 
     bool CloseConnection() override {
-        // Implementation for closing connection
+        // Implementation for closing Connection
         return true;
     }
 };

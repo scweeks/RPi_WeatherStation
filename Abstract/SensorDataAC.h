@@ -8,15 +8,11 @@ using namespace std;
 
 class SensorDataAC : public SensorDataIF {
 private:
-    string data;
+    string Data;
 protected:
-    // Protected getter and setter for data
-    bool SetData(const string& data) { this->data = data; return true; }
-    string GetData() const { return this->data; }
-public:
-    virtual string GetData() const = 0;
-    virtual bool SetData(const string& data) = 0;
-    virtual ~SensorDataAC() = default;
+    // Protected getter and setter for Data
+    bool SetData(const string& Data) { this->Data = Data; return true; }
+    string GetData() const { return this->Data; }
 };
 
 #endif // SENSORDATAAC_H

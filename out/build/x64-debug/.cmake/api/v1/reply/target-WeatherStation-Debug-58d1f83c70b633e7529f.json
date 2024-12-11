@@ -152,12 +152,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Concrete/SensorData/WindData.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Concrete/SensorData/TempData.h",
+			"path" : "Concrete/SensorData.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -178,6 +173,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Managers/ConnectionServer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Concrete/Connections/Ethernet.h",
 			"sourceGroupIndex" : 1
 		}
 	],

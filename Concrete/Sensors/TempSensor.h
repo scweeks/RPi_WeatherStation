@@ -28,8 +28,8 @@ public:
         return getConnection()->open(address);
     }
 
-    bool WriteSensorData(const std::string& data) override {
-        return getConnection()->write(data);
+    bool WriteSensorData(const std::string& Data) override {
+        return getConnection()->write(Data);
     }
 
     bool CloseConnection() override {
