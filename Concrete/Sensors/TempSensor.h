@@ -1,15 +1,15 @@
 #ifndef TEMPSENSOR_H
 #define TEMPSENSOR_H
 
-#include "../../Abstract/SensorAC.h"
-#include "../../Interfaces/SensorDataIF.h"
-#include "../../Interfaces/ConnectionIF.h"
+// Include the required headers for all sensor classes
+#include "../../Concrete/Sensors/SensorIncludes.h"
 
 using namespace std;
 
 class TempSensor : public SensorAC {
 public:
-    TempSensor() {
+    TempSensor() 
+        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
         // Initialize unique attributes for TempSensor
         setSensorType("Temperature");
         setData(make_shared<SensorData>());

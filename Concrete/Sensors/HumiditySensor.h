@@ -2,7 +2,7 @@
 #define HUMIDITYSENSOR_H
 
 // Include the required headers for all sensor classes
-#include "../Sensors/Sensors.h"
+#include "../../Concrete/Sensors/SensorIncludes.h"
 
 using namespace std;
 

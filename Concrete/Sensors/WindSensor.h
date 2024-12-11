@@ -1,15 +1,15 @@
 #ifndef WINDSENSOR_H
 #define WINDSENSOR_H
 
-#include "../../Abstract/SensorAC.h"
-#include "../../Interfaces/SensorDataIF.h"
-#include "../../Interfaces/ConnectionIF.h"
+// Include the required headers for all sensor classes
+#include "../../Concrete/Sensors/SensorIncludes.h"
 
 using namespace std;
 
 class WindSensor : public SensorAC {
 public:
-    WindSensor() {
+    WindSensor() 
+        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
         // Initialize unique attributes for WindSensor
         setSensorType("Wind");
         setData(make_shared<SensorDataIF>());

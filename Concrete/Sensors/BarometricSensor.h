@@ -2,42 +2,36 @@
 #define BAROMETRICSENSOR_H
 
 // Include the required headers for all sensor classes
-#include "../Sensors/Sensors.h"
-
-using namespace std;
+#include "../../Concrete/Sensors/SensorIncludes.h"
 
 class BarometricSensor : public SensorAC {
 public:
-    BarometricSensor() 
-        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
+    BarometricSensor(const std::string& ipAddress, int port)
+        : SensorAC(std::make_shared<SensorData>(), std::make_shared<Ethernet>(ipAddress, port)) {
         // Initialize unique attributes for BarometricSensor
         setSensorType("Barometric");
-        setData(make_shared<SensorDataIF>());
-        setConnection(make_shared<ConnectionIF>());
     }
 
-    string GetSensorData() const override {
-        this->getData()->SetData( this->getConnection()->RetrieveData() );
-        return this->getData()->GetData();
+    std::string GetSensorData() const override {
+        return getSensorData()->GetData();
     }
 
-    string GetSensorType() const override {
+    std::string GetSensorType() const override {
         return getSensorType();
     }
 
-    bool SetSensorName(const std::string& SensorName) override {
-        if (setSensorName(SensorName))
-            return true;
-		return false;
-	}
+    bool SetSensorName(const std::string& sensorName) override {
+        setSensorName(sensorName);
+        return true;
+    }
 
-    string GetSensorName() const override {
-		return this->GetSensorName();
-	}
+    std::string GetSensorName() const override {
+        return getSensorName();
+    }
 
-    virtual bool UpdateConnection(const std::string& address, int port) override {
-		return this->getConnection()->UpdateConnection(address, port);
-	}
+    bool UpdateConnection(const std::string& address, int port) override {
+        return getConnection()->UpdateConnection(address, port);
+    }
 };
 
 #endif // BAROMETRICSENSOR_H
