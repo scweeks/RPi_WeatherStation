@@ -18,6 +18,7 @@ public:
         if (type == "Temp") return make_shared<TempSensor>();
         if (type == "Humidity") return make_shared<HumiditySensor>();
         if (type == "Barometric") return make_shared<BarometricSensor>();
+        if (type == "Rain") return make_shared<BarometricSensor>();
         return nullptr;
     }
 };

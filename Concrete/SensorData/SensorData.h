@@ -1,7 +1,7 @@
 #ifndef SENSORDATA_H
 #define SENSORDATA_H
 
-#include "../Abstract/SensorDataAC.h"
+#include "../../Abstract/SensorDataAC.h"
 
 class SensorData : public SensorDataAC {
 public:
