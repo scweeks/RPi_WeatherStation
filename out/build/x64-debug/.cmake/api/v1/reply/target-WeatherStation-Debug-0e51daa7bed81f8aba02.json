@@ -153,7 +153,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Concrete/SensorData.h",
+			"path" : "Concrete/SensorData/SensorData.h",
 			"sourceGroupIndex" : 1
 		},
 		{
