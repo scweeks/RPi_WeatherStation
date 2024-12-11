@@ -11,7 +11,7 @@
 #include "../../Interfaces/ConnectionIF.h"
 
 // Include concrete implementations of sensor data
-#include "../../Concrete/SensorData.h"
+#include "../../Concrete/SensorData/SensorData.h"
 
 // Include concrete implementations of connections
 #include "../../Concrete/Connections/Ethernet.h"
