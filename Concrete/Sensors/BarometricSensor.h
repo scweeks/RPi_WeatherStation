@@ -6,21 +6,23 @@
 
 class BarometricSensor : public SensorAC {
 public:
-    BarometricSensor()
-        : SensorAC(nullptr, nullptr) {
+    BarometricSensor(const std::string& name)
+        : SensorAC(name) {
         // Initialize unique attributes for BarometricSensor
         setData(std::make_shared<SensorDataIF>());
         setConnection(std::make_shared<Ethernet>());
         setType("Barometric");
+        setName(name);
     }
 
 
-    BarometricSensor(const std::string& ipAddress, int port)
-        : SensorAC(nullptr, nullptr) {
+    BarometricSensor(const std::string name, const std::string& ipAddress, int port)
+        : SensorAC(name, nullptr, nullptr) {
         // Initialize unique attributes for BarometricSensor
         setData(std::make_shared<SensorDataIF>());
         setConnection(std::make_shared<Ethernet>(ipAddress, port));
         setType("Barometric");
+        setName(name);
     }
 
     std::string GetSensorData() const override {

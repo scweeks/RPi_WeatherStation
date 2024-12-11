@@ -64,8 +64,14 @@ protected:
     }
 
 public:
-    SensorAC(std::shared_ptr<SensorDataIF> data, std::shared_ptr<ConnectionIF> connection)
-        : Data(data), Connection(connection) {}
+    SensorAC(std::string name) {
+        setName(name);
+    }
+
+    SensorAC(std::string name, std::shared_ptr<SensorDataIF> data, std::shared_ptr<ConnectionIF> connection)
+        : Data(data), Connection(connection) {
+        setName(name);
+    }
     virtual string GetSensorData() const = 0;
     virtual string GetSensorName() const = 0;
     virtual string GetSensorType() const = 0;

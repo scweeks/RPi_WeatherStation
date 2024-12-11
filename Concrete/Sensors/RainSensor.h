@@ -8,12 +8,23 @@ using namespace std;
 
 class RainSensor : public SensorAC {
 public:
-    RainSensor(const std::string& ipAddress, int port)
-        : SensorAC(nullptr, nullptr) {
-        // Initialize unique attributes for HumiditySensor
+    RainSensor(const std::string& name)
+        : SensorAC(name) {
+        // Initialize unique attributes for BarometricSensor
+        setData(std::make_shared<SensorDataIF>());
+        setConnection(std::make_shared<Ethernet>());
+        setType("Rain");
+        setName(name);
+    }
+
+
+    RainSensor(const std::string name, const std::string& ipAddress, int port)
+        : SensorAC(name, nullptr, nullptr) {
+        // Initialize unique attributes for BarometricSensor
         setData(std::make_shared<SensorDataIF>());
         setConnection(std::make_shared<Ethernet>(ipAddress, port));
         setType("Rain");
+        setName(name);
     }
 
     std::string GetSensorData() const override {
