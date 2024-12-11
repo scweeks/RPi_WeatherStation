@@ -1,14 +1,22 @@
-#ifndef WINDDATA_H
-#define WINDDATA_H
+#ifndef SENSORDATA_H
+#define SENSORDATA_H
 
 #include "../Abstract/SensorDataAC.h"
 
-using namespace std;
-
-class WindData : public SensorDataAC {
+class SensorData : public SensorDataAC {
 public:
-    string GetData() const override { return SensorDataAC::GetData(); }
-    bool SetData(const string& Data) override { return SensorDataAC::SetData(Data); }
+    SensorData(std::string Data) : SensorDataAC(Data) {}
+    // Inherited via SensorDataAC
+    std::string GetData() const override 
+    { 
+        return SensorDataAC::GetData(); 
+    }
+
+    // Inherited via SensorDataAC
+    bool SetData(const std::string& Data) override 
+    { 
+        return SensorDataAC::SetData(Data); 
+    }
 };
 
-#endif // WINDDATA_H
+#endif // SENSORDATA_H
