@@ -1,11 +1,8 @@
 #ifndef BAROMETRICSENSOR_H
 #define BAROMETRICSENSOR_H
 
-#include "../../Abstract/SensorAC.h"
-#include "../../Interfaces/SensorDataIF.h"
-#include "../../Interfaces/ConnectionIF.h"
-#include "../../Concrete/SensorData.h"
-#include "../../Concrete/Connections/Ethernet.h"
+// Include the required headers for all sensor classes
+#include "../Sensors/Sensors.h"
 
 using namespace std;
 

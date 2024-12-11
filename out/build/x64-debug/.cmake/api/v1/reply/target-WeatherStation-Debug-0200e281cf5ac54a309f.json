@@ -113,7 +113,8 @@
 				8,
 				9,
 				10,
-				11
+				11,
+				12
 			]
 		}
 	],
@@ -178,6 +179,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Concrete/Connections/Ethernet.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Concrete/Sensors/Sensors.h",
 			"sourceGroupIndex" : 1
 		}
 	],

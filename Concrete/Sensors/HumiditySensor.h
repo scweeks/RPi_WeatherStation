@@ -1,15 +1,15 @@
 #ifndef HUMIDITYSENSOR_H
 #define HUMIDITYSENSOR_H
 
-#include "../../Abstract/SensorAC.h"
-#include "../../Interfaces/SensorDataIF.h"
-#include "../../Interfaces/ConnectionIF.h"
+// Include the required headers for all sensor classes
+#include "../Sensors/Sensors.h"
 
 using namespace std;
 
 class HumiditySensor : public SensorAC {
 public:
-    HumiditySensor() {
+    HumiditySensor()
+        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
         // Initialize unique attributes for HumiditySensor
         setSensorType("Humidity");
         setData(make_shared<SensorData>());
