@@ -7,26 +7,28 @@
 class BarometricSensor : public SensorAC {
 public:
     BarometricSensor(const std::string& ipAddress, int port)
-        : SensorAC(std::make_shared<SensorData>(), std::make_shared<Ethernet>(ipAddress, port)) {
+        : SensorAC(nullptr, nullptr) {
         // Initialize unique attributes for BarometricSensor
-        setSensorType("Barometric");
+        setData(std::make_shared<SensorDataIF>());
+        setConnection(std::make_shared<Ethernet>(ipAddress, port));
+        setType("Barometric");
     }
 
     std::string GetSensorData() const override {
-        return getSensorData()->GetData();
+        return getData()->GetData();
     }
 
     std::string GetSensorType() const override {
-        return getSensorType();
+        return getType();
     }
 
     bool SetSensorName(const std::string& sensorName) override {
-        setSensorName(sensorName);
+        setName(sensorName);
         return true;
     }
 
     std::string GetSensorName() const override {
-        return getSensorName();
+        return getName();
     }
 
     bool UpdateConnection(const std::string& address, int port) override {

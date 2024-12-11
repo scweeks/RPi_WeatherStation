@@ -8,35 +8,33 @@ using namespace std;
 
 class WindSensor : public SensorAC {
 public:
-    WindSensor() 
-        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
+    WindSensor(const std::string& ipAddress, int port)
+        : SensorAC(nullptr, nullptr) {
         // Initialize unique attributes for WindSensor
-        setSensorType("Wind");
-        setData(make_shared<SensorDataIF>());
-        setConnection(make_shared<ConnectionIF>());
+        setData(std::make_shared<SensorDataIF>());
+        setConnection(std::make_shared<Ethernet>(ipAddress, port));
+        setType("Wind");
     }
 
-    shared_ptr<SensorDataIF> GetData() const override {
-        return getData();
+    std::string GetSensorData() const override {
+        return getData()->GetData();
     }
 
-    string GetSensorType() const override {
-        return getSensorType();
+    std::string GetSensorType() const override {
+        return getType();
     }
 
-    bool OpenConnection(const std::string& address) override {
-        // Implementation for opening Connection
+    bool SetSensorName(const std::string& sensorName) override {
+        setName(sensorName);
         return true;
     }
 
-    bool WriteSensorData(const std::string& Data) override {
-        // Implementation for writing sensor Data
-        return true;
+    std::string GetSensorName() const override {
+        return getName();
     }
 
-    bool CloseConnection() override {
-        // Implementation for closing Connection
-        return true;
+    bool UpdateConnection(const std::string& address, int port) override {
+        return getConnection()->UpdateConnection(address, port);
     }
 };
 #endif // WINDSENSOR_H

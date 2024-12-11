@@ -41,17 +41,17 @@ protected:
     }
 
     // Protected setter for SensorType
-    bool setSensorType(const std::string& newSensorType) {
+    bool setType(const std::string& newSensorType) {
         SensorType = newSensorType;
         return true;
     }
     // Protected getter for SensorType
-    std::string getSensorType() const {
+    std::string getType() const {
         return SensorType;
     }
 
     // Protected setter for SensorName
-    bool setSensorName(const std::string& newSensorName) {
+    bool setName(const std::string& newSensorName) {
         string originalSensorName = SensorName;
         SensorName = newSensorName;
         if (SensorName == originalSensorName)
@@ -59,7 +59,7 @@ protected:
         return true;
     }
     // Protected getter for SensorName
-    std::string getSensorName() const {
+    std::string getName() const {
         return SensorName;
     }
 

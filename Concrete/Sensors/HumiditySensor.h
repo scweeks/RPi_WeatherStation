@@ -8,32 +8,33 @@ using namespace std;
 
 class HumiditySensor : public SensorAC {
 public:
-    HumiditySensor()
-        : SensorAC(std::make_unique<SensorData>(), std::make_unique<Ethernet>(ipAddress, port)) {
+    HumiditySensor(const std::string& ipAddress, int port)
+        : SensorAC(nullptr, nullptr) {
         // Initialize unique attributes for HumiditySensor
-        setSensorType("Humidity");
-        setData(make_shared<SensorData>());
-        setConnection(make_shared<Connection>());
+        setData(std::make_shared<SensorDataIF>());
+        setConnection(std::make_shared<Ethernet>(ipAddress, port));
+        setType("Humidity");
     }
 
-    shared_ptr<SensorDataIF> GetData() const override {
-        return getData();
+    std::string GetSensorData() const override {
+        return getData()->GetData();
     }
 
-    string GetSensorType() const override {
-        return getSensorType();
+    std::string GetSensorType() const override {
+        return getType();
     }
 
-    bool OpenConnection(const std::string& address) override {
-        return getConnection()->open(address);
+    bool SetSensorName(const std::string& sensorName) override {
+        setName(sensorName);
+        return true;
     }
 
-    bool WriteSensorData(const std::string& Data) override {
-        return getConnection()->write(Data);
+    std::string GetSensorName() const override {
+        return getName();
     }
 
-    bool CloseConnection() override {
-        return getConnection()->close();
+    bool UpdateConnection(const std::string& address, int port) override {
+        return getConnection()->UpdateConnection(address, port);
     }
 };
 
