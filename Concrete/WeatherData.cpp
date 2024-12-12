@@ -1,5 +1,5 @@
 #include "WeatherData.h"
-#include "SensorDataFactory.h" // Assuming this is the factory for creating sensors
+#ainclude "../Interfaces/SensorIF.h"
 
 bool WeatherData::AddSensor(SensorIF sensor) {
     if (sensors.push_back(sensor)) {

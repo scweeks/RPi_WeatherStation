@@ -12,7 +12,6 @@ class SensorManager {
 private:
     WeatherData Data;
     SensorFactory Factory;
-    vector<string> SensorNames;
 public:
     bool AddSensor(const std::string& name, const std::string& type);
     bool DelSensor(const std::string& name);

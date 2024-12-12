@@ -9,8 +9,8 @@
 class SensorDataFactory {
 public:
     //Create a new sensor data object for the new sensor
-    static std::shared_ptr<SensorDataIF> createSensorData(const std::string& type) {
-        if (type == "Sensor") { return std::make_shared<SensorData>(); }
+    static std::unique_ptr<SensorDataIF> createSensorData(const std::string& type) {
+        if (type == "Sensor") { return std::make_unique<SensorData>(); }
         return nullptr;
     }
 };
