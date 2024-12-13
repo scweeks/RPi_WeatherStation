@@ -1,30 +1,30 @@
 #include "WeatherData.h"
-#ainclude "../Interfaces/SensorIF.h"
 
-bool WeatherData::AddSensor(SensorIF sensor) {
-    if (sensors.push_back(sensor)) {
-        return true;
+bool WeatherData::AddSensor(std::unique_ptr<SensorIF> sensor) {
+    if (sensor) {
+        std::string name = sensor->GetSensorName();
+        auto result = sensors.emplace(name, std::move(sensor));
+        return result.second; // Returns true if the sensor was successfully added
     }
-    return false;
+    return false; // Returns false if the sensor was null
 }
 
-bool WeatherData::DelSensor(int id) {
-    auto it = std::remove_if(sensors.begin(), sensors.end(),
-        [&name](const std::shared_ptr<SensorIF>& sensor) {
-            return sensor->GetName() == name;
-        });
+bool WeatherData::RemoveSensor(const std::string& name) {
+    return sensors.erase(name) > 0;
+}
+
+SensorIF* WeatherData::GetSensor(const std::string& name) const {
+    auto it = sensors.find(name);
     if (it != sensors.end()) {
-        sensors.erase(it, sensors.end());
-        return true;
-    }
-    return false;
-}
-
-std::shared_ptr<SensorIF> WeatherData::GetSensor(const std::string& name) const {
-    for (const auto& sensor : sensors) {
-        if (sensor->GetName() == name) {
-            return sensor;
-        }
+        return it->second.get();
     }
     return nullptr;
+}
+
+std::vector<SensorIF*> WeatherData::GetAllSensors() const {
+    std::vector<SensorIF*> sensorList;
+    for (const auto& pair : sensors) {
+        sensorList.push_back(pair.second.get());
+    }
+    return sensorList;
 }

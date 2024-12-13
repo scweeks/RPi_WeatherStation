@@ -11,33 +11,36 @@ using namespace std;
 
 class SensorAC : public SensorIF {
 private:
-    shared_ptr<SensorDataIF> Data;
-    shared_ptr<ConnectionIF> Connection;
+    unique_ptr<SensorDataIF> Data;
+    unique_ptr<ConnectionIF> Connection;
     string SensorType;
     string SensorName;
 
 protected:
     // Protected setter for Data
-    bool setData(std::shared_ptr<SensorDataIF> newData) {
-        //Data = newData;
-        if (Data = newData)
+    bool setData(std::unique_ptr<SensorDataIF> newData) {
+        if (newData) {
+            Data = std::move(newData);
             return true;
+        }
         return false;
     }
     // Protected getter for Data
-    std::shared_ptr<SensorDataIF> getData() const {
-        return Data;
+    SensorDataIF* getData() const {
+        return Data.get();
     }
 
     // Protected setter for Connection
-    bool setConnection(std::shared_ptr<ConnectionIF> newConnection) {
-        if (Connection = newConnection)
+    bool setConnection(std::unique_ptr<ConnectionIF> newConnection) {
+        if (newConnection) {
+            Connection = std::move(newConnection);
             return true;
+        }
         return false;
     }
     // Protected getter for Connection
-    std::shared_ptr<ConnectionIF> getConnection() const {
-        return Connection;
+    ConnectionIF* getConnection() const {
+        return Connection.get();
     }
 
     // Protected setter for SensorType
@@ -54,9 +57,7 @@ protected:
     bool setName(const std::string& newSensorName) {
         string originalSensorName = SensorName;
         SensorName = newSensorName;
-        if (SensorName == originalSensorName)
-			return false;
-        return true;
+        return SensorName != originalSensorName;
     }
     // Protected getter for SensorName
     std::string getName() const {
@@ -68,15 +69,17 @@ public:
         setName(name);
     }
 
-    SensorAC(std::string name, std::shared_ptr<SensorDataIF> data, std::shared_ptr<ConnectionIF> connection)
-        : Data(data), Connection(connection) {
+    SensorAC(std::string name, std::unique_ptr<SensorDataIF> data, std::unique_ptr<ConnectionIF> connection)
+        : Data(std::move(data)), Connection(std::move(connection)) {
         setName(name);
     }
+
     virtual string GetSensorData() const = 0;
     virtual string GetSensorName() const = 0;
     virtual string GetSensorType() const = 0;
     virtual bool SetSensorName(const std::string& SensorName) = 0;
     virtual bool UpdateConnection(const std::string& address, int port) = 0;
+    virtual ConnectionIF* GetConnection() const = 0; 
     virtual ~SensorAC() = default;
 };
 
