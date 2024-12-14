@@ -41,7 +41,7 @@ bool SensorManager::PrintSensors() const {
     std::cout << std::string(70, '-') << std::endl;
     for (const auto& sensor : sensors) {
         std::cout << std::left << std::setw(20) << sensor->GetSensorName() << std::setw(20) << sensor->GetSensorType()
-            << std::setw(20) << sensor->GetConnection()->GetIPAddress() << std::setw(10) << sensor->GetConnection()->GetPort() << std::endl;
+            << std::setw(20) << sensor->GetConnection()->GetIpAddress() << std::setw(10) << sensor->GetConnection()->GetPort() << std::endl;
     }
     return true;
 }
@@ -52,9 +52,9 @@ bool SensorManager::PrintSensorData() const {
     if (sensors.empty()) {
         return false;
     }
-    std::unordered_map<std::string, std::vector<std::shared_ptr<SensorIF>>> sensorMap;
+    std::unordered_map<std::string, std::vector<std::unique_ptr<SensorIF>>> sensorMap;
     for (const auto& sensor : sensors) {
-        sensorMap[sensor->GetSensorType()].push_back(sensor);
+        sensorMap[sensor->GetSensorType()].push_back(unique_ptr<SensorIF>(sensor));
     }
 
     for (const auto& entry : sensorMap) {
@@ -80,8 +80,8 @@ void SensorManager::RetrieveAndPrintData() {
     std::unordered_map<std::string, std::vector<std::string>> sensorDataMap;
 
     for (const auto& sensor : sensors) {
-        threads.emplace_back([&sensor, &sensorDataMap]() {
-            auto data = sensor->RetrieveData();
+        threads.emplace_back([&sensor, &sensorDataMap, this]() {
+            auto data = sensor->GetSensorData();
             std::lock_guard<std::mutex> lock(dataMutex);
             sensorDataMap[sensor->GetSensorName()].push_back(data);
             if (sensorDataMap[sensor->GetSensorName()].size() > 10) {

@@ -13,7 +13,7 @@ private:
 public:
     bool AddSensor(std::unique_ptr<SensorIF> sensor);
     bool RemoveSensor(const std::string& name);
-    SensorIF* GetSensor(const std::string& name) const;
+    std::unique_ptr<SensorIF> GetSensor(const std::string& name) const;
     std::vector<SensorIF*> GetAllSensors() const;
 };
 

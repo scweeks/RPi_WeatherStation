@@ -3,12 +3,10 @@
 
 #include <memory>
 #include <string>
-#include <unordered_map>
-#include <vector>
 #include <mutex>
 #include "../Interfaces/SensorIF.h"
-#include "../Factories/SensorManager.h"
 #include "../Concrete/WeatherData.h"
+#include "../Factories/SensorFactory.h"
 
 class SensorManager {
 private:
@@ -19,7 +17,7 @@ private:
 public:
     bool AddSensor(const std::string& name, const std::string& type, const std::string ipAddress, int port);
     bool DelSensor(const std::string& name);
-    std::shared_ptr<SensorIF> GetSensor(const std::string& name) const;
+    std::unique_ptr<SensorIF> GetSensor(const std::string& name) const;
     bool PrintSensors() const;
     bool PrintSensorData() const;
     void RetrieveAndPrintData();

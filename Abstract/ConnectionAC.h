@@ -23,7 +23,7 @@ private:
 protected:
     bool setSocketDescriptor(unsigned long long fd)
     {
-        int temp = sockfd;
+        unsigned long long temp = sockfd;
 	    sockfd = fd;
         return sockfd != temp;
     }
