@@ -10,7 +10,7 @@ class WindSensor : public SensorAC {
 public:
     WindSensor(const std::string name, const std::string& ipAddress, int port)
         : SensorAC(name, nullptr, nullptr) {
-        // Initialize unique attributes for BarometricSensor
+        // Initialize unique attributes for WindSensor
         setData(std::make_unique<SensorDataIF>());
         setConnection(std::make_unique<Ethernet>(ipAddress, port));
         setType("Wind");
@@ -37,5 +37,9 @@ public:
     bool UpdateConnection(const std::string& address, int port) override {
         return getConnection()->UpdateConnection(address, port);
     }
+
+    virtual ConnectionIF* GetConnection() const override {
+		return getConnection();
+	}
 };
 #endif // WINDSENSOR_H

@@ -6,6 +6,8 @@
 class ConnectionIF {
 public:
     virtual bool UpdateConnection(const std::string& ipAddress, int port) = 0;
+    virtual std::string GetIpAddress() const = 0;
+    virtual int GetPort() const = 0;
     virtual std::string RetrieveData() = 0;
     virtual ~ConnectionIF() = default;
 };
