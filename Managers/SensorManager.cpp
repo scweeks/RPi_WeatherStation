@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <chrono>
 
+
 std::mutex dataMutex;
 std::mutex printMutex;
 
@@ -25,7 +26,7 @@ bool SensorManager::DelSensor(const std::string& name) {
     return Data.RemoveSensor(name);
 }
 
-std::shared_ptr<SensorIF> SensorManager::GetSensor(const std::string& name) const {
+std::unique_ptr<SensorIF> SensorManager::GetSensor(const std::string& name) const {
     std::lock_guard<std::mutex> lock(dataMutex);
     return Data.GetSensor(name);
 }

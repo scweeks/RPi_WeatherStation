@@ -8,21 +8,11 @@ using namespace std;
 
 class TempSensor : public SensorAC {
 public:
-    TempSensor(const std::string& name)
-        : SensorAC(name) {
-        // Initialize unique attributes for BarometricSensor
-        setData(std::make_shared<SensorDataIF>());
-        setConnection(std::make_shared<Ethernet>());
-        setType("Temp");
-        setName(name);
-    }
-
-
     TempSensor(const std::string name, const std::string& ipAddress, int port)
         : SensorAC(name, nullptr, nullptr) {
         // Initialize unique attributes for BarometricSensor
-        setData(std::make_shared<SensorDataIF>());
-        setConnection(std::make_shared<Ethernet>(ipAddress, port));
+        setData(std::make_unique<SensorDataIF>());
+        setConnection(std::make_unique<Ethernet>(ipAddress, port));
         setType("Temp");
         setName(name);
     }
