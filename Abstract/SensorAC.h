@@ -61,10 +61,25 @@ protected:
     }
 
 public:
-    SensorAC(std::string name, std::string connectionType)
+    SensorAC(std::string& name)
         : SensorName(std::move(name)) {
         setData(SensorDataFactory::createSensorData("Sensor"));
-        this->setConnection(ConnectionFactory::createConnection("connectionType")));
+        this->setConnection(ConnectionFactory::createConnection("Ethernet", "127.0.0.1", 0));
+    }
+
+    SensorAC(const std::string& name, const std::string& connType, const std::string& dataType)
+        : SensorName(std::move(name))
+    {
+    	setData(SensorDataFactory::createSensorData(dataType));
+		setConnection(ConnectionFactory::createConnection(connType, "127.0.0.1", 0));
+    }
+
+    SensorAC(const std::string& name, const std::string& connType, const std::string& dataType,
+        const std::string& address, const int port)
+        : SensorName(std::move(name))
+    {
+        setData(SensorDataFactory::createSensorData(dataType));
+        setConnection(ConnectionFactory::createConnection(connType, address, port));
     }
 
     virtual std::string GetSensorData() const = 0;

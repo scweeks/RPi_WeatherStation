@@ -8,14 +8,11 @@ using namespace std;
 
 class HumiditySensor : public SensorAC {
 public:
-    HumiditySensor(const std::string name, const std::string connType,
-        const std::string& ipAddress, int port)
-        : SensorAC(name, connType) {
+    HumiditySensor(const std::string& name, const std::string& connType,
+        const std::string& dataType, const std::string& ipAddress, int port)
+        : SensorAC(name, connType, dataType, ipAddress, port) {
         // Initialize unique attributes for WindSensor
-        setData(std::make_unique<SensorData>());
-        setConnection(ConnectionFactory::createConnection(connType, ipAddress, port));
         setType("Humidity");
-        setName(name);
     }
 
     std::string GetSensorData() const override {
