@@ -5,14 +5,14 @@
 
 class SensorData : public SensorDataAC {
 public:
-    SensorData(std::string Data) : SensorDataAC(Data) {}
-    // Inherited via SensorDataAC
+    SensorData() : SensorDataAC() {}
+    SensorData(const std::string& Data) : SensorDataAC(Data) {}
+    // Return the data stored in the sensor
     std::string GetData() const override 
     { 
         return SensorDataAC::GetData(); 
     }
-
-    // Inherited via SensorDataAC
+    // Set the data stored in the sensor
     bool SetData(const std::string& Data) override 
     { 
         return SensorDataAC::SetData(Data); 

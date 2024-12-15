@@ -13,7 +13,7 @@ bool WeatherData::RemoveSensor(const std::string& name) {
     return sensors.erase(name) > 0;
 }
 
-SensorIF* WeatherData::GetSensor(const std::string& name) const {
+std::unique_ptr<SensorIF> WeatherData::GetSensor(const std::string& name) const {
     auto it = sensors.find(name);
     if (it != sensors.end()) {
         return it->second.get();

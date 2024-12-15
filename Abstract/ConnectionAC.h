@@ -21,23 +21,23 @@ private:
     bool connected;
 
 protected:
-    bool setSocketDescriptor(unsigned long long fd)
+    bool setSocketDescriptor(const unsigned long long fd)
     {
         unsigned long long temp = sockfd;
 	    sockfd = fd;
         return sockfd != temp;
     }
-    int getSocketDescriptor() const { return sockfd; }
+    unsigned long long getSocketDescriptor() const { return sockfd; }
 
-    bool setServerAddress(const std::string ipAddress)
+    bool setServerAddress(const std::string& address)
     {
     	struct sockaddr_in temp;
 		temp.sin_family = AF_INET;
 		temp.sin_port = htons(port);
-		if (inet_pton(AF_INET, ipAddress.c_str(), &temp.sin_addr) <= 0) {
+		if (inet_pton(AF_INET, address.c_str(), &temp.sin_addr) <= 0) {
 			return false;
 		}
-        this->ipAddress = ipAddress;
+        this->ipAddress = address;
 		serverAddress = temp;
 		return true;
     }
@@ -52,29 +52,30 @@ protected:
 
     int getPort() const { return port; }
 
-    bool setConnected(bool conn)
+    bool setConnected(const bool conn)
     {
-        
-		bool temp = connected;
+	    const bool temp = connected;
 		connected = conn;
 		return connected != temp;
     }
     bool getConnected() const { return connected; }
 
     void Disconnect()  {
-        if (sockfd != -1) {
+        if (sockfd != 0) {
 #ifdef _WIN32
             closesocket(sockfd);
 #else
             close(sockfd);
 #endif
-            sockfd = -1;
+            sockfd = 0;
             connected = false;
         }
     }
 
 public:
-    ConnectionAC() : sockfd(-1), port(0), connected(false) {}
+    ConnectionAC() : sockfd(0), serverAddress(), port(0), connected(false)
+    {
+    }
 
     ~ConnectionAC() override
     {

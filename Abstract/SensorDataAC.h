@@ -8,6 +8,7 @@ protected:
     std::string data;
 
 public:
+    SensorDataAC() : data("") {}
     SensorDataAC(std::string data) : data(data) {}
     virtual ~SensorDataAC() = default;
 

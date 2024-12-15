@@ -8,11 +8,12 @@ using namespace std;
 
 class WindSensor : public SensorAC {
 public:
-    WindSensor(const std::string name, const std::string& ipAddress, int port)
-        : SensorAC(name, nullptr, nullptr) {
+    WindSensor(const std::string name, const std::string connType,
+        const std::string& ipAddress, int port)
+        : SensorAC(name, connType) {
         // Initialize unique attributes for WindSensor
-        setData(std::make_unique<SensorDataIF>());
-        setConnection(std::make_unique<Ethernet>(ipAddress, port));
+        setData(std::make_unique<SensorData>());
+        setConnection(ConnectionFactory::createConnection(connType, ipAddress, port));
         setType("Wind");
         setName(name);
     }

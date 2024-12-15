@@ -167,7 +167,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Managers/SensorManager.h",
+			"path" : "Factories/SensorFactory.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -203,7 +203,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Factories/SensorManager.h",
+			"path" : "Factories/ConnectionFactory.h",
 			"sourceGroupIndex" : 1
 		}
 	],
