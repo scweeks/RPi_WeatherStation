@@ -3,6 +3,8 @@
 
 #include "WeatherStation.h"
 #include <thread>
+#include <iostream>
+#include <atomic>
 
 using namespace std;
 
@@ -13,6 +15,8 @@ int main()
     SensorManager manager;
     char choice = ' ';
     atomic<bool> running(true);
+    atomic<bool> collecting(false);
+    thread collectionThread;
 
     // Add sensors
     manager.AddSensor("Temp", "Temp Sensor 1", "Ethernet", "Sensor", "192.168.50.28", 2000);
@@ -66,7 +70,15 @@ int main()
         }
         case 's':
         case 'S': {
-            manager.StartCollection();
+            if (!collecting) {
+                collecting = true;
+                collectionThread = thread([&manager, &collecting]() {
+                    manager.StartCollection();
+                    });
+            }
+            else {
+                cout << "Collection is already running." << endl;
+            }
             break;
         }
         case 'm':
@@ -77,12 +89,27 @@ int main()
         }
         case 'o':
         case 'O': {
-            manager.StopCollection();
+            if (collecting) {
+                manager.StopCollection();
+                collecting = false;
+                if (collectionThread.joinable()) {
+                    collectionThread.join();
+                }
+            }
+            else {
+                cout << "Collection is not running." << endl;
+            }
             break;
         }
         case 'q':
         case 'Q': {
-            manager.StopCollection();
+            if (collecting) {
+                manager.StopCollection();
+                collecting = false;
+                if (collectionThread.joinable()) {
+                    collectionThread.join();
+                }
+            }
             running = false;
             break;
         }

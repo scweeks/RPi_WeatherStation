@@ -4,6 +4,10 @@
 #include <memory>
 #include <string>
 #include <mutex>
+#include <atomic>
+#include <thread>
+#include <chrono>
+#include <iostream>
 #include "../Interfaces/SensorIF.h"
 #include "../Concrete/WeatherData.h"
 #include "../Factories/SensorFactory.h"
