@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.10"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "WeatherStation::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-WeatherStation-Debug-835e4874b1ec1e914d95.json",
+					"jsonFile" : "target-WeatherStation-Debug-3eec4b67980a3f9fe8be.json",
 					"name" : "WeatherStation",
 					"projectIndex" : 0
 				}

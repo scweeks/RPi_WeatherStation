@@ -1,5 +1,5 @@
-#ifndef WEATHERDATA_H
-#define WEATHERDATA_H
+#ifndef CONCRETE_WEATHERDATA_H_
+#define CONCRETE_WEATHERDATA_H_
 
 #include <memory>
 #include <vector>
@@ -13,8 +13,8 @@ private:
 public:
     bool AddSensor(std::unique_ptr<SensorIF> sensor);
     bool RemoveSensor(const std::string& name);
-    std::unique_ptr<SensorIF> GetSensor(const std::string& name) const;
+    std::unique_ptr<SensorIF> GetSensor(const std::string& name);
     std::vector<SensorIF*> GetAllSensors() const;
 };
 
-#endif // WEATHERDATA_H
+#endif /* CONCRETE_WEATHERDATA_H_ */

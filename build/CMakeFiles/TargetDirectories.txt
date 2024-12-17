@@ -1,0 +1,3 @@
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/build/CMakeFiles/WeatherStation.dir
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/build/CMakeFiles/edit_cache.dir
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/build/CMakeFiles/rebuild_cache.dir

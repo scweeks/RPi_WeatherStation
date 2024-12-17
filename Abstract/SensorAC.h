@@ -26,7 +26,7 @@ protected:
         return false;
     }
 
-    SensorDataIF* getData() const {
+    SensorDataIF* getData() {
         return Data.get();
     }
 
@@ -38,8 +38,8 @@ protected:
         return false;
     }
 
-    ConnectionIF* getConnection() const {
-        return Connection.get();
+    ConnectionIF* getConnection() {
+        return Connection->Get();
     }
 
     bool setType(const std::string& newSensorType) {
@@ -47,7 +47,7 @@ protected:
         return true;
     }
 
-    std::string getType() const {
+    std::string getType() {
         return SensorType;
     }
 
@@ -56,7 +56,7 @@ protected:
         return true;
     }
 
-    std::string getName() const {
+    std::string getName() {
         return SensorName;
     }
 
@@ -70,8 +70,8 @@ public:
     SensorAC(const std::string& name, const std::string& connType, const std::string& dataType)
         : SensorName(std::move(name))
     {
-    	setData(SensorDataFactory::createSensorData(dataType));
-		setConnection(ConnectionFactory::createConnection(connType, "127.0.0.1", 0));
+        setData(SensorDataFactory::createSensorData(dataType));
+        setConnection(ConnectionFactory::createConnection(connType, "127.0.0.1", 0));
     }
 
     SensorAC(const std::string& name, const std::string& connType, const std::string& dataType,
@@ -82,12 +82,14 @@ public:
         setConnection(ConnectionFactory::createConnection(connType, address, port));
     }
 
-    virtual std::string GetSensorData() const = 0;
-    virtual std::string GetSensorName() const = 0;
-    virtual std::string GetSensorType() const = 0;
+    virtual std::string GetSensorData() = 0;
+    virtual std::string GetSensorName() = 0;
+    virtual std::string GetSensorType() = 0;
     virtual bool SetSensorName(const std::string& SensorName) = 0;
-    virtual bool UpdateConnection(const std::string& address, int port) = 0;
-    virtual ConnectionIF* GetConnection() const = 0;
+    virtual bool UpdateSensorConnection(const std::string& address, int port) = 0;
+    ConnectionIF* GetConnection() override {
+        return getConnection();
+    }
     virtual ~SensorAC() = default;
 };
 

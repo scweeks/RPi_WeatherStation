@@ -1,5 +1,5 @@
-#ifndef CONNECTIONAC_H
-#define CONNECTIONAC_H
+#ifndef ABSTRACT_CONNECTIONAC_H
+#define ABSTRACT_CONNECTIONAC_H
 
 #include "../Interfaces/ConnectionIF.h"
 
@@ -10,6 +10,7 @@
 #else
 #include <netinet/in.h> // For sockaddr_in
 #include <unistd.h>     // For close
+#include <arpa/inet.h>	// For inet_pton
 #endif
 
 class ConnectionAC : public ConnectionIF {
@@ -24,22 +25,22 @@ protected:
     bool setSocketDescriptor(const unsigned long long fd)
     {
         unsigned long long temp = sockfd;
-	    sockfd = fd;
+        sockfd = fd;
         return sockfd != temp;
     }
-    unsigned long long getSocketDescriptor() const { return sockfd; }
+    unsigned long long getSocketDescriptor() { return sockfd; }
 
     bool setServerAddress(const std::string& address)
     {
-    	struct sockaddr_in temp;
-		temp.sin_family = AF_INET;
-		temp.sin_port = htons(port);
-		if (inet_pton(AF_INET, address.c_str(), &temp.sin_addr) <= 0) {
-			return false;
-		}
+        struct sockaddr_in temp;
+        temp.sin_family = AF_INET;
+        temp.sin_port = htons(port);
+        if (inet_pton(AF_INET, address.c_str(), &temp.sin_addr) <= 0) {
+            return false;
+        }
         this->ipAddress = address;
-		serverAddress = temp;
-		return true;
+        serverAddress = temp;
+        return true;
     }
     std::string getServerAddress() { return ipAddress; }
 
@@ -50,17 +51,17 @@ protected:
         return this->port != temp;
     }
 
-    int getPort() const { return port; }
+    int getPort() { return port; }
 
     bool setConnected(const bool conn)
     {
-	    const bool temp = connected;
-		connected = conn;
-		return connected != temp;
+        const bool temp = connected;
+        connected = conn;
+        return connected != temp;
     }
-    bool getConnected() const { return connected; }
+    bool getConnected() { return connected; }
 
-    void Disconnect()  {
+    void Disconnect() {
         if (sockfd != 0) {
 #ifdef _WIN32
             closesocket(sockfd);
@@ -85,9 +86,10 @@ public:
     }
 
     virtual bool UpdateConnection(const std::string& ipAddress, int port) override = 0;
-    virtual std::string GetIpAddress() const override = 0;
-    virtual int GetPort() const override = 0;
+    virtual std::string GetIpAddress() override = 0;
+    virtual int GetPort() override = 0;
     virtual std::string RetrieveData() override = 0;
+    virtual ConnectionIF* Get() override = 0;
 };
 
-#endif // CONNECTIONAC_H
+#endif // ABSTRACT_CONNECTIONAC_H

@@ -1,11 +1,12 @@
-#ifndef ETHERNET_H
-#define ETHERNET_H
+#ifndef CONCRETE_CONNECTIONS_ETHERNET_H_
+#define CONCRETE_CONNECTIONS_ETHERNET_H_
 
 #include "../../Abstract/ConnectionAC.h"
 #include <stdexcept>
 #include <iostream>
 #include <arpa/inet.h> // For inet_pton
 #include <sys/socket.h> // For socket functions
+#include <unistd.h>
 
 class Ethernet : public ConnectionAC {
 public:
@@ -27,8 +28,7 @@ public:
     }
 
     std::string RetrieveData() override {
-        // Implement data retrieval logic here
-        struct sockaddr_in temp;
+        struct sockaddr_in temp = {};
         temp.sin_family = AF_INET;
         temp.sin_port = htons(getPort());
         if (inet_pton(AF_INET, getServerAddress().c_str(), &temp.sin_addr) <= 0) {
@@ -36,18 +36,16 @@ public:
         }
         int sockfd = getSocketDescriptor();
         if (sockfd < 0) {
-            if (!setSocketDescriptor(socket(AF_INET, SOCK_STREAM, 0)))
-            {
-            	throw std::runtime_error("ERROR Opening Socket...");			
+            if (!setSocketDescriptor(socket(AF_INET, SOCK_STREAM, 0))) {
+                throw std::runtime_error("ERROR Opening Socket...");
             }
             sockfd = getSocketDescriptor();
-		}
-        if (connect(sockfd, reinterpret_cast<struct sockaddr*>(&temp), sizeof(temp)) < 0)
-        { 
+        }
+        if (connect(sockfd, reinterpret_cast<struct sockaddr*>(&temp), sizeof(temp)) < 0) {
             this->setConnected(false);
             throw std::runtime_error("ERROR Opening Connection...");
-        } 
-        this->setConnected(true); 
+        }
+        this->setConnected(true);
         // read data from the socket
         char buffer[1024];
         int bytesRead = recv(sockfd, buffer, sizeof(buffer), 0);
@@ -57,14 +55,15 @@ public:
         return std::string(buffer, bytesRead);
     }
 
-    virtual std::string GetIpAddress()
-    {
+    std::string GetIpAddress() override {
         return getServerAddress();
     }
-    virtual int GetPort()
-    {
-    	return getPort();
+
+    int GetPort() override {
+        return getPort();
     }
+
+    virtual ConnectionIF* Get() override { return this; }
 };
 
-#endif // ETHERNET_H
+#endif /* CONCRETE_CONNECTIONS_ETHERNET_H_ */

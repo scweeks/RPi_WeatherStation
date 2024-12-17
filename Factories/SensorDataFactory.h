@@ -1,10 +1,9 @@
-#ifndef SENSORDATAFACTORY_H
-#define SENSORDATAFACTORY_H
+#ifndef FACTORIES_SENSORDATAFACTORY_H_
+#define FACTORIES_SENSORDATAFACTORY_H_
 
 #include <memory>
 #include <string>
-#include "../../Interfaces/SensorDataIF.h"
-#include "../../Concrete/SensorData/SensorData.h"
+#include "../Concrete/SensorData/SensorData.h"
 
 class SensorDataFactory {
 public:
@@ -15,4 +14,4 @@ public:
     }
 };
 
-#endif // SENSORDATAFACTORY_H
+#endif /* FACTORIES_SENSORDATAFACTORY_H_ */

@@ -1,5 +1,5 @@
-#ifndef SENSORDATAAC_H
-#define SENSORDATAAC_H
+#ifndef ABSTRACT_SENSORDATAAC_H
+#define ABSTRACT_SENSORDATAAC_H
 
 #include "../Interfaces/SensorDataIF.h"
 
@@ -21,10 +21,10 @@ public:
         std::string oldData = data;
         data = newData;
         if (data != oldData) {
-			return true;
-		}
+            return true;
+        }
         return false;
     }
 };
 
-#endif // SENSORDATAAC_H
+#endif // ABSTRACT_SENSORDATAAC_H

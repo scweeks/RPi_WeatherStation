@@ -13,10 +13,10 @@ bool WeatherData::RemoveSensor(const std::string& name) {
     return sensors.erase(name) > 0;
 }
 
-std::unique_ptr<SensorIF> WeatherData::GetSensor(const std::string& name) const {
-    auto it = sensors.find(name);
+std::unique_ptr<SensorIF> WeatherData::GetSensor(const std::string& sensorName) {
+    auto it = sensors.find(sensorName);
     if (it != sensors.end()) {
-        return it->second.get();
+        return std::move(it->second); // Transfer ownership using std::move
     }
     return nullptr;
 }

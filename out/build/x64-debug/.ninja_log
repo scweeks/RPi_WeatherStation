@@ -1,5 +1,5 @@
 # ninja log v5
-2	938	7556389883484067	CMakeFiles/WeatherStation.dir/WeatherStation.cpp.obj	4ec950c1f76783e6
+3	1086	7560043828184233	CMakeFiles/WeatherStation.dir/WeatherStation.cpp.obj	a43fdb15b2791c06
 938	1937	7556389892802557	WeatherStation.exe	6e41b90672c9f46
 3	550	7554080497993225	CMakeFiles/WeatherStation.dir/Factories/SensorDataFactory.cpp.obj	342ee167f51bcdfd
 2	11	0	clean	21a4d0550fd2b6b1

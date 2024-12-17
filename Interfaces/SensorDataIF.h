@@ -1,5 +1,5 @@
-#ifndef SENSORDATAIF_H
-#define SENSORDATAIF_H
+#ifndef INTERFACES_SENSORDATAIF_H_
+#define INTERFACES_SENSORDATAIF_H_
 
 #include <string>
 
@@ -12,4 +12,4 @@ public:
     virtual bool SetData(const std::string& data) = 0;
 };
 
-#endif // SENSORDATAIF_H
+#endif /* INTERFACES_SENSORDATAIF_H_ */

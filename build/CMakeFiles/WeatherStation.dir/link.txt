@@ -1,0 +1,1 @@
+/root/tools-master/arm-bcm2708/arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o CMakeFiles/WeatherStation.dir/Concrete/WeatherData.cpp.o CMakeFiles/WeatherStation.dir/Managers/SensorManager.cpp.o -o WeatherStation 

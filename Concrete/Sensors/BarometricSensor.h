@@ -1,5 +1,5 @@
-#ifndef BAROMETRICSENSOR_H
-#define BAROMETRICSENSOR_H
+#ifndef CONCRETE_SENSORS_BAROMETRICSENSOR_H_
+#define CONCRETE_SENSORS_BAROMETRICSENSOR_H_
 
 // Include the required headers for all sensor classes
 #include "../../Concrete/Sensors/SensorIncludes.h"
@@ -13,11 +13,11 @@ public:
         setType("Barometric");
     }
 
-    std::string GetSensorData() const override {
+    std::string GetSensorData() override {
         return getData()->GetData();
     }
 
-    std::string GetSensorType() const override {
+    std::string GetSensorType() override {
         return getType();
     }
 
@@ -26,17 +26,13 @@ public:
         return true;
     }
 
-    std::string GetSensorName() const override {
+    std::string GetSensorName() override {
         return getName();
     }
 
-    bool UpdateConnection(const std::string& address, int port) override {
+    bool UpdateSensorConnection(const std::string& address, int port) override {
         return getConnection()->UpdateConnection(address, port);
-    }
-
-    virtual ConnectionIF* GetConnection() const override {
-        return getConnection();
     }
 };
 
-#endif // BAROMETRICSENSOR_H
+#endif /* CONCRETE_SENSORS_BAROMETRICSENSOR_H_ */

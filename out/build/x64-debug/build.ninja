@@ -51,13 +51,23 @@ build cmake_object_order_depends_target_WeatherStation: phony || CMakeFiles\Weat
 
 build CMakeFiles\WeatherStation.dir\WeatherStation.cpp.obj: CXX_COMPILER__WeatherStation_unscanned_Debug E$:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\WeatherStation.cpp || cmake_object_order_depends_target_WeatherStation
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Abstract -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Interfaces -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Concrete -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Managers -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Factories
   OBJECT_DIR = CMakeFiles\WeatherStation.dir
   OBJECT_FILE_DIR = CMakeFiles\WeatherStation.dir
   TARGET_COMPILE_PDB = CMakeFiles\WeatherStation.dir\
   TARGET_PDB = WeatherStation.pdb
 
+build CMakeFiles\WeatherStation.dir\Concrete\WeatherData.cpp.obj: CXX_COMPILER__WeatherStation_unscanned_Debug E$:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Concrete\WeatherData.cpp || cmake_object_order_depends_target_WeatherStation
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Abstract -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Interfaces -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Concrete -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Managers -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Factories
+  OBJECT_DIR = CMakeFiles\WeatherStation.dir
+  OBJECT_FILE_DIR = CMakeFiles\WeatherStation.dir\Concrete
+  TARGET_COMPILE_PDB = CMakeFiles\WeatherStation.dir\
+  TARGET_PDB = WeatherStation.pdb
+
 build CMakeFiles\WeatherStation.dir\Managers\SensorManager.cpp.obj: CXX_COMPILER__WeatherStation_unscanned_Debug E$:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Managers\SensorManager.cpp || cmake_object_order_depends_target_WeatherStation
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  INCLUDES = -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Abstract -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Interfaces -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Concrete -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Managers -IE:\DevRepos\SWENG452w\WeatherStation\RPi_WeatherStation\Factories
   OBJECT_DIR = CMakeFiles\WeatherStation.dir
   OBJECT_FILE_DIR = CMakeFiles\WeatherStation.dir\Managers
   TARGET_COMPILE_PDB = CMakeFiles\WeatherStation.dir\
@@ -71,7 +81,7 @@ build CMakeFiles\WeatherStation.dir\Managers\SensorManager.cpp.obj: CXX_COMPILER
 #############################################
 # Link the executable WeatherStation.exe
 
-build WeatherStation.exe: CXX_EXECUTABLE_LINKER__WeatherStation_Debug CMakeFiles\WeatherStation.dir\WeatherStation.cpp.obj CMakeFiles\WeatherStation.dir\Managers\SensorManager.cpp.obj
+build WeatherStation.exe: CXX_EXECUTABLE_LINKER__WeatherStation_Debug CMakeFiles\WeatherStation.dir\WeatherStation.cpp.obj CMakeFiles\WeatherStation.dir\Concrete\WeatherData.cpp.obj CMakeFiles\WeatherStation.dir\Managers\SensorManager.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

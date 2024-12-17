@@ -7,13 +7,14 @@
 #include <algorithm>
 #include <chrono>
 
-
 std::mutex dataMutex;
 std::mutex printMutex;
 
-bool SensorManager::AddSensor(const std::string& name, const std::string& type, const std::string ipAddress, int port) {
+bool SensorManager::AddSensor(const std::string& type,
+    const std::string& name, const std::string& connType,
+    const std::string& dataType, const std::string& ipAddress, int port) {
     std::lock_guard<std::mutex> lock(dataMutex);
-    auto sensor = Factory.MakeSensor(type, name, ipAddress, port);
+    auto sensor = SensorFactory::MakeSensor(type, name, connType, dataType, ipAddress, port);
     if (sensor) {
         Data.AddSensor(std::move(sensor));
         return true;
@@ -26,12 +27,12 @@ bool SensorManager::DelSensor(const std::string& name) {
     return Data.RemoveSensor(name);
 }
 
-std::unique_ptr<SensorIF> SensorManager::GetSensor(const std::string& name) const {
+std::unique_ptr<SensorIF> SensorManager::GetSensor(const std::string& name) {
     std::lock_guard<std::mutex> lock(dataMutex);
     return Data.GetSensor(name);
 }
 
-bool SensorManager::PrintSensors() const {
+bool SensorManager::PrintSensors() {
     std::lock_guard<std::mutex> lock(printMutex);
     auto sensors = Data.GetAllSensors();
     if (sensors.empty()) {
@@ -46,15 +47,15 @@ bool SensorManager::PrintSensors() const {
     return true;
 }
 
-bool SensorManager::PrintSensorData() const {
+bool SensorManager::PrintSensorData() {
     std::lock_guard<std::mutex> lock(printMutex);
     auto sensors = Data.GetAllSensors();
     if (sensors.empty()) {
         return false;
     }
-    std::unordered_map<std::string, std::vector<std::unique_ptr<SensorIF>>> sensorMap;
+    std::unordered_map<std::string, std::vector<SensorIF*>> sensorMap;
     for (const auto& sensor : sensors) {
-        sensorMap[sensor->GetSensorType()].push_back(unique_ptr<SensorIF>(sensor));
+        sensorMap[sensor->GetSensorType()].push_back(sensor);
     }
 
     for (const auto& entry : sensorMap) {
@@ -97,29 +98,4 @@ void SensorManager::RetrieveAndPrintData() {
     }
 
     PrintSensorData();
-}
-
-bool SensorManager::StartCollection() {
-    try {
-        std::thread([this]() {
-            while (true) {
-                auto start = std::chrono::steady_clock::now();
-                RetrieveAndPrintData();
-                auto end = std::chrono::steady_clock::now();
-                std::chrono::duration<double> elapsed = end - start;
-                if (elapsed.count() < 6.0) {
-                    std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>((6.0 - elapsed.count()) * 1000)));
-                }
-            }
-            }).detach();
-        return true;
-    }
-    catch (...) {
-        return false;
-    }
-}
-
-bool SensorManager::StopCollection() {
-    // Implementation to stop the collection
-    return true;
 }
