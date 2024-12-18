@@ -37,4 +37,4 @@ The Delete sensor feature is not working.
 The program runs.
 The add sensor feature works.
 The start and stop collection features work, minus actually pulling the data from the sensors.
-The exit program function works.
+The exit program function works. 
