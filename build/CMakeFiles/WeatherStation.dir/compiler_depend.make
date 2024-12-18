@@ -282,6 +282,30 @@ CMakeFiles/WeatherStation.dir/Managers/SensorManager.cpp.o: /mnt/e/DevRepos/SWEN
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/parse_numbers.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/system_error \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/error_constants.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/atomic \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/atomic_base.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/4.9.3/include/stdbool.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/iostream \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ostream \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ios \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/ios_base.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_classes.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_classes.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/streambuf \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/streambuf.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/cwctype \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/wctype.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/ctype_base.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/streambuf_iterator.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/ctype_inline.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/ostream.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/istream \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/istream.tcc \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Interfaces/SensorIF.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Interfaces/ConnectionIF.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/WeatherData.h \
@@ -320,26 +344,8 @@ CMakeFiles/WeatherStation.dir/Managers/SensorManager.cpp.o: /mnt/e/DevRepos/SWEN
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/confname.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/getopt.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/arpa/inet.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/iostream \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ostream \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ios \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/ios_base.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_classes.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_classes.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/streambuf \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/streambuf.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/cwctype \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/wctype.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/ctype_base.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/streambuf_iterator.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/ctype_inline.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/ostream.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/istream \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/istream.tcc \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/cstring \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/string.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/ConnectionFactory.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Connections/Ethernet.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Interfaces/ConnectionIF.h \
@@ -368,7 +374,6 @@ CMakeFiles/WeatherStation.dir/Managers/SensorManager.cpp.o: /mnt/e/DevRepos/SWEN
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets_nonio.tcc \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/sstream \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/sstream.tcc \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/algorithm \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/stl_algo.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/algorithmfwd.h \
@@ -568,6 +573,16 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/confname.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/getopt.h \
   /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/arpa/inet.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/cstring \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/string.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/mutex \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/chrono \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ratio \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/limits \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ctime \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/parse_numbers.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/system_error \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/error_constants.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/ConnectionFactory.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Connections/Ethernet.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Interfaces/ConnectionIF.h \
@@ -607,19 +622,14 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Sensors/SensorIncludes.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Sensors/RainSensor.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Managers/SensorManager.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/mutex \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/chrono \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ratio \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/limits \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ctime \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/parse_numbers.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/system_error \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/error_constants.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/atomic \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/atomic_base.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/4.9.3/include/stdbool.h \
+  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Interfaces/SensorIF.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/WeatherData.h \
   /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/SensorFactory.h \
-  /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/ConnectionFactory.h \
-  /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread
+  /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/ConnectionFactory.h
 
 
 /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Managers/ConnectionServer.h:
@@ -648,8 +658,6 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/algorithm:
 
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread:
-
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/sstream:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets_nonio.tcc:
@@ -669,6 +677,34 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/algorithmfwd.h:
 
 /mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Factories/SensorDataFactory.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/string.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/cstring:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/in.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/asm-generic/socket.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/mathdef.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/sstream.tcc:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/asm/socket.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/socket.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/messages_members.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/netinet/in.h:
+
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Abstract/ConnectionAC.h:
+
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Connections/Ethernet.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/huge_vall.h:
+
+/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Abstract/SensorAC.h:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/locale_facets_nonio.h:
 
@@ -706,29 +742,11 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/iostream:
 
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/in.h:
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/thread:
 
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/asm-generic/socket.h:
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/4.9.3/include/stdbool.h:
 
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/mathdef.h:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/sstream.tcc:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/asm/socket.h:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/socket.h:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/messages_members.h:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/netinet/in.h:
-
-/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Abstract/ConnectionAC.h:
-
-/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Concrete/Connections/Ethernet.h:
-
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/huge_vall.h:
-
-/mnt/e/DevRepos/SWENG452w/WeatherStation/RPi_WeatherStation/Abstract/SensorAC.h:
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/atomic:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/parse_numbers.h:
 
@@ -788,9 +806,9 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/time_members.h:
 
-/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.h:
-
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/usr/include/bits/sockaddr.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/basic_ios.h:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/ext/new_allocator.h:
 
@@ -1011,6 +1029,8 @@ CMakeFiles/WeatherStation.dir/WeatherStation.cpp.o: /mnt/e/DevRepos/SWENG452w/We
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/ptr_traits.h:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/4.9.3/include/stdint.h:
+
+/root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/bits/atomic_base.h:
 
 /root/tools-master/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/include/c++/4.9.3/arm-linux-gnueabihf/bits/error_constants.h:
 

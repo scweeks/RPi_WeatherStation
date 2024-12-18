@@ -16,7 +16,7 @@ bool SensorManager::AddSensor(const std::string& type,
     std::lock_guard<std::mutex> lock(dataMutex);
     auto sensor = SensorFactory::MakeSensor(type, name, connType, dataType, ipAddress, port);
     if (sensor) {
-        Data.AddSensor(std::move(sensor));
+        data.AddSensor(std::move(sensor));
         return true;
     }
     return false;
@@ -24,17 +24,17 @@ bool SensorManager::AddSensor(const std::string& type,
 
 bool SensorManager::DelSensor(const std::string& name) {
     std::lock_guard<std::mutex> lock(dataMutex);
-    return Data.RemoveSensor(name);
+    return data.RemoveSensor(name);
 }
 
 std::unique_ptr<SensorIF> SensorManager::GetSensor(const std::string& name) {
     std::lock_guard<std::mutex> lock(dataMutex);
-    return Data.GetSensor(name);
+    return data.GetSensor(name);
 }
 
 bool SensorManager::PrintSensors() {
     std::lock_guard<std::mutex> lock(printMutex);
-    auto sensors = Data.GetAllSensors();
+    auto sensors = data.GetAllSensors();
     if (sensors.empty()) {
         return false;
     }
@@ -49,7 +49,7 @@ bool SensorManager::PrintSensors() {
 
 bool SensorManager::PrintSensorData() {
     std::lock_guard<std::mutex> lock(printMutex);
-    auto sensors = Data.GetAllSensors();
+    auto sensors = data.GetAllSensors();
     if (sensors.empty()) {
         return false;
     }
@@ -76,7 +76,7 @@ bool SensorManager::PrintSensorData() {
 }
 
 void SensorManager::RetrieveAndPrintData() {
-    auto sensors = Data.GetAllSensors();
+    auto sensors = data.GetAllSensors();
     std::vector<std::thread> threads;
     std::unordered_map<std::string, std::vector<std::string>> sensorDataMap;
 

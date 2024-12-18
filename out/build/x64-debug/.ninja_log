@@ -3,3 +3,5 @@
 938	1937	7556389892802557	WeatherStation.exe	6e41b90672c9f46
 3	550	7554080497993225	CMakeFiles/WeatherStation.dir/Factories/SensorDataFactory.cpp.obj	342ee167f51bcdfd
 2	11	0	clean	21a4d0550fd2b6b1
+5	16	0	clean	21a4d0550fd2b6b1
+13	874	7562383326709634	CMakeFiles/WeatherStation.dir/Concrete/WeatherData.cpp.obj	b8f92e42a6b568fa

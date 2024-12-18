@@ -2,87 +2,96 @@
 #define ABSTRACT_CONNECTIONAC_H
 
 #include "../Interfaces/ConnectionIF.h"
-
-#ifdef _WIN32
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#pragma comment(lib, "ws2_32.lib")
-#else
 #include <netinet/in.h> // For sockaddr_in
 #include <unistd.h>     // For close
-#include <arpa/inet.h>	// For inet_pton
-#endif
+#include <arpa/inet.h>  // For inet_pton
+#include <string>
+#include <cstring>      // For memset
+#include <mutex>
 
 class ConnectionAC : public ConnectionIF {
 private:
-    unsigned long long sockfd;
+    int sockfd; // Use int for socket descriptor
     struct sockaddr_in serverAddress;
     std::string ipAddress;
     int port;
     bool connected;
+    mutable std::mutex connMutex; // Mutex for thread safety
 
 protected:
-    bool setSocketDescriptor(const unsigned long long fd)
-    {
-        unsigned long long temp = sockfd;
-        sockfd = fd;
-        return sockfd != temp;
-    }
-    unsigned long long getSocketDescriptor() { return sockfd; }
-
-    bool setServerAddress(const std::string& address)
-    {
-        struct sockaddr_in temp;
-        temp.sin_family = AF_INET;
-        temp.sin_port = htons(port);
-        if (inet_pton(AF_INET, address.c_str(), &temp.sin_addr) <= 0) {
-            return false;
+    bool setSocketDescriptor(int fd) {
+        std::lock_guard<std::mutex> lock(connMutex);
+        if (sockfd != -1) {
+            close(sockfd); // Close the previous socket descriptor
         }
-        this->ipAddress = address;
+        sockfd = fd;
+        return sockfd != -1;
+    }
+
+    int getSocketDescriptor() const {
+        std::lock_guard<std::mutex> lock(connMutex);
+        return sockfd;
+    }
+
+    bool setServerAddress(const std::string& address) {
+        std::lock_guard<std::mutex> lock(connMutex);
+        struct sockaddr_in temp;
+        memset(&temp, 0, sizeof(temp));
+        temp.sin_family = AF_INET;
+
+        if (inet_pton(AF_INET, address.c_str(), &temp.sin_addr) <= 0) {
+            return false; // Address conversion failed
+        }
+
+        ipAddress = address;
         serverAddress = temp;
         return true;
     }
-    std::string getServerAddress() { return ipAddress; }
 
-    bool setPort(int port)
-    {
-        int temp = port;
-        this->port = port;
-        return this->port != temp;
+    std::string getServerAddress() const {
+        std::lock_guard<std::mutex> lock(connMutex);
+        return ipAddress;
     }
 
-    int getPort() { return port; }
+    bool setPort(int newPort) {
+        std::lock_guard<std::mutex> lock(connMutex);
+        port = newPort;
+        serverAddress.sin_port = htons(port);
+        return true;
+    }
 
-    bool setConnected(const bool conn)
-    {
-        const bool temp = connected;
+    int getPort() const {
+        std::lock_guard<std::mutex> lock(connMutex);
+        return port;
+    }
+
+    bool setConnected(bool conn) {
+        std::lock_guard<std::mutex> lock(connMutex);
         connected = conn;
-        return connected != temp;
+        return true;
     }
-    bool getConnected() { return connected; }
+
+    bool getConnected() const {
+        std::lock_guard<std::mutex> lock(connMutex);
+        return connected;
+    }
 
     void Disconnect() {
-        if (sockfd != 0) {
-#ifdef _WIN32
-            closesocket(sockfd);
-#else
+        std::lock_guard<std::mutex> lock(connMutex);
+        if (sockfd != -1) {
             close(sockfd);
-#endif
-            sockfd = 0;
+            sockfd = -1;
             connected = false;
         }
     }
 
 public:
-    ConnectionAC() : sockfd(0), serverAddress(), port(0), connected(false)
-    {
+    ConnectionAC() : sockfd(-1), serverAddress(), port(0), connected(false) {
+        memset(&serverAddress, 0, sizeof(serverAddress)); // Zero-initialize
     }
 
-    ~ConnectionAC() override
-    {
-        if (connected) {
-            Disconnect();
-        }
+    ~ConnectionAC() override {
+        Disconnect();
     }
 
     virtual bool UpdateConnection(const std::string& ipAddress, int port) override = 0;
